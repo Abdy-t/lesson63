@@ -24,10 +24,10 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public User createUser(@RequestParam("email") String email, @RequestParam("name") String name,
-                                @RequestParam("login") String login, @RequestParam("password") String password) {
+    public User createUser(@RequestParam("email") String email, @RequestParam("password") String password) {
 
         User u = new User(email, password);
+        System.out.println(u.getEmail() + " - " + u.getPassword());
         userService.saveUser(u);
         return u;
     }
